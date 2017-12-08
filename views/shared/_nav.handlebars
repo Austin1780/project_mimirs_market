@@ -14,24 +14,35 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-nav-collapse">
 
-      {{!-- Nav Links Dropdown --}}
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{{ rootPath }}">
+            <span class="glyphicon glyphicon-search" id="navSearch1" aria-hidden="true"></span>
+          </a>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{{ glyphicon "option-vertical" }}}
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="{{ rootPath }}">Link</a></li>
+            <li>Items in Cart</li>
+            <li>---------------------------------</li>
+            <li><a href="/cart">View Cart</a></li>
+            <li><a href="/cart/checkout">Check Out</a></li>
           </ul>
         </li>
-      </ul>
+        <li>
+          <a href="/admin/orders">
+            <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/analytics">
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+          </a>
+        </li>
 
-      {{!-- Links --}}
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ rootPath }}">
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-          </a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->

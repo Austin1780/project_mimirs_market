@@ -1,4 +1,45 @@
-.glyphicon-shopping-cart,
-.nav-title1 {
+.glyphicon {
   font-size: 30px;
+}
+
+.glyphicon-search {
+  font-size: 15px;
+}
+
+#navSearch1 {
+  font-size: 30px;
+}
+
+.nav-title1 {
+  padding: 20px;
+  color: black !important;
+}
+
+.resultsDescription,
+.productsDisplay {
+  margin-top: 20px;
+}
+
+.resultsDescription {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-success {
+  display: block;
+  margin-left: 75px;
+}
+
+.product-box {
+  padding: 20px;
+  border: solid black 1px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+h1 {
+  display: inline;
+  text-align: center;
 }

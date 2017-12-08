@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form-inline" method="post" action="/products/searchbyname">
+  <form class="form-inline" method="post" action="/products/searchbyname/">
     <div class="input-group col-sm-12">
       <input name="search" type="text" class="search-query form-control" placeholder="Search for a product name." />
         <span class="input-group-btn">
@@ -11,12 +11,13 @@
   </form>
 </div>
 
-<div style="margin-top:10px;" class="container">
+<div class="container">
   <form action="/products/filter" method="post">
     <div class="form-group">
       <div class="col-sm-3">
-        <label for="categories">Categories</label>
-        <select class="form-control" id="categories">
+        <label for="categories">Categories:</label>
+        <select class="form-control" id="categories" name="categories">
+          <option>All</option>
           {{#each categories as |category|}}
             <option>{{category.name}}</option>
           {{/each}}
@@ -24,28 +25,63 @@
       </div>
       <div class="col-sm-3">
         <label for="minprice">Min. Price</label>
-        <input id="minprice" name="minprice" type="text" class="form-control" placeholder="0.99" />
+        <input id="minprice" name="minprice" type="text" class="form-control" value="1"/>
       </div>
       <div class="col-sm-3">
         <label for="maxprice">Max. Price</label>
-        <input id="maxprice" name="maxprice" type="text" class="form-control" placeholder="1000" />
+        <input id="maxprice" name="maxprice" type="text" class="form-control" value="1000" />
       </div>
       <div class="col-sm-3">
-        <button style="margin-top:22px;" type="submit" class="btn btn-primary">Submit</button>
+        <button style="margin-top:24px;" type="submit" class="btn btn-primary">Filter</button>
       </div>
     </div>
   </form>
 </div>
 
-<div style="margin-top:40px;" class="container">
+<div class="container">
+  <form action="/products/sort" method="post">
+    <div class="form-group">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+        <label for="sort">Sort by:</label>
+        <select class="form-control" id="sort" name="sort">
+          <option>Name Ascending</option>
+          <option>Name Descending</option>
+          <option>Price Ascending</option>
+          <option>Price Descending</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <button style="margin-top:24px;" type="submit" class="btn btn-primary">Sort</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="resultsDescription container">
+ <div class="row">
+   <div class="col-sm-12">
+     Displaying {{ resultsDescription }}
+   </div>
+ </div>
+</div>
+
+<div class="productsDisplay container">
   <div class="row">
     {{#each products as |product|}}
-    <div class="col-sm-4">
-      <img src="{{product.picture}}" height="200"><br>
-      {{product.name}}<br>
+    <div class="col-sm-4 product-box">
+      <img src="{{product.picture}}" height="150"><br>
+      <span class="product-name">{{product.name}}</span><br>
       {{product.description}}<br>
-      {{product.price}}<br>
-      <p>Product Cateogry: </p>{{product.categoryId}}
+      ${{product.price}}<br>
+      Product Cateogry: {{product.categoryId}}<br>
+      <button type="button" class="btn btn-success" id="addToCart{{product.id}}">Add to Cart</button>
+      <script>
+         $('#addToCart{{product.id}}').click(function () {
+           alert('1 {{product.name}} has been added to your cart!');
+         });
+      </script>
     </div>
     {{/each}}
   </div>
